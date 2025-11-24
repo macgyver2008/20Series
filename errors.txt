@@ -1,0 +1,48 @@
+Starting audit...
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:36:16: Variable 'speed' must be private and have accessor methods. [VisibilityModifier]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:40: Line has trailing spaces. [RegexpSingleline]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:42:33: Expected @param tag for 'fColor'. [JavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:42:54: Expected @param tag for 'fLicensePlate'. [JavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:43:15: Expected @param tag for 'fNumberOfDoors'. [JavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:43:41: Expected @param tag for 'fMaxSpeed'. [JavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:52:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:52:27: Parameter power should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:52:38: Parameter time should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:57:15: '=' is not followed by whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:57:16: '+' is followed by whitespace. [NoWhitespaceAfter]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:60:9: '}' is not followed by whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:60:10: 'else' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:66:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:66:22: Parameter power should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:66:33: Parameter time should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:71:14: '=' is not followed by whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:71:15: '-' is followed by whitespace. [NoWhitespaceAfter]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:74:9: '}' is not followed by whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:74:10: 'else' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:80:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:89:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:95:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:99:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:99:33: Parameter newColor should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:105:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:105:43: Parameter newLicensePlate should be final. [FinalParameters]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:110: Line has trailing spaces. [RegexpSingleline]
+[ERROR] /home/yoochanhan/ICS4U-Unit-2/Vehicle.java:111:5: Missing a Javadoc comment. [MissingJavadocMethod]
+Audit done.
+Checkstyle ends with 29 errors.
+yoochanhan@ICS4U-Unit-2:~/ICS4U-Unit-2$ git add -A
+yoochanhan@ICS4U-Unit-2:~/ICS4U-Unit-2$ git commit -m "a"
+[main bbd1d71] a
+ 2 files changed, 25 insertions(+), 10 deletions(-)
+ rename 2-05/Vehicle.java => Vehicle.java (87%)
+yoochanhan@ICS4U-Unit-2:~/ICS4U-Unit-2$ git push origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 1.10 KiB | 1.10 MiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To http://gitea.local/yoochan.han/ICS4U-Unit-2
+   30cb3c2..bbd1d71  main -> main
