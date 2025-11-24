@@ -1,3 +1,7 @@
+
+
+
+
 /*
  * This class creates an String stack
  *
@@ -10,11 +14,40 @@
  * This is class program.
  */
 public final class Vehicle {
-    static String color;
-    final String licensePlate;
-    final int maxSpeed;
-    final int numberOfDoors;
-    static int speed;
+    /**
+    * Color of Car.
+    */
+    private static String color = "";
+    /**
+    * license plate number of Car.
+    */
+    private static String licensePlate = "";
+    /**
+    * limited speed of Car.
+    */
+    private static int maxSpeed = 0;
+    /**
+    * # of doors of Car.
+    */
+    private static int numberOfDoors = 0;
+    /**
+    * Speed of Car.
+    */
+    static int speed = 0;
+
+
+    /**
+     * 
+     */
+    public Vehicle(final String fColor, final String fLicensePlate,
+    final int fNumberOfDoors, final int fMaxSpeed) {
+        this.color = fColor;
+        this.licensePlate = fLicensePlate;
+        this.maxSpeed = fMaxSpeed;
+        this.numberOfDoors = fNumberOfDoors;
+        this.speed = 0;
+    }
+
 
     public int accelerate(int power, int time) {
         /*
@@ -30,48 +63,54 @@ public final class Vehicle {
         }
     }
 
-    public int break(int power, int time) {
+    public int brake(int power, int time) {
         /*
         * break, speed = speed - power * time
         * speed >= 0
         */
        speed =- power * time;
         if (speed >= 0) {
-            // return speed;
+            return speed;
         }else {
             speed = 0;
-            // return speed;
+            return speed;
         }
     }
 
-    public static void Status() {
+    public static void status() {
+        System.out.println("Speed: " + speed);
+        System.out.println("Color: " + color);
+        System.out.println("License plate number: " + licensePlate);
+        System.out.println("Max speed: " + maxSpeed);
+        System.out.println("Number of doors: " + numberOfDoors);
         //show status
     }
 
-    public static void getColor() {
+    public static String getColor() {
         // it returns an integer value of the number of elements in the stack
-        System.out.print(color);
+        return color;
+        // System.out.print(color);
     }
 
-    public static void getSpeed() {
+    public static int getSpeed() {
         // it returns an integer value of the number of elements in the stack
-        System.out.print(speed);
+        return speed;
     }
     public static void setColor(String newColor) {
         // it returns an integer value of the number of elements in the stack
         color = newColor;
-        System.out.print(color);
+        System.out.println(color);
     }
 
-    public static String changeLicensePlate(String newLicensePlate) {
+    public static void changeLicensePlate(String newLicensePlate) {
         // change lisence plate number
         licensePlate = newLicensePlate;
-        System.out.print(licensePlate);
+        // System.out.print(licensePlate);
     }
     
-    public static String getDoorNumber() {
+    public static int getDoorNumber() {
         // print door
-    System.out.print(numberOfDoors);
-        
+        return numberOfDoors;
+    // System.out.print(numberOfDoors);
         }
     }
