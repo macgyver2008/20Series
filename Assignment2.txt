@@ -1,0 +1,229 @@
+Aniaml.java --
+public class Animal{
+    /**
+    * Color of animal.
+    */
+    private static String color = "";
+    /**
+    * Name of animal.
+    */
+    private static String name = "";
+    /**
+    * limited speed of animal.
+    */
+    private static int maxSpeed = 0;
+    /**
+    * Speed of animal.
+    */
+    private static int speed = 0;
+
+    /**
+     * @param fColor
+     * @param fLicensePlate
+     * @param fName
+     * @param fMaxSpeed
+     */
+    public Animal(final String fColor, final String fName,
+    final int fMaxSpeed) {
+        this.color = fColor;
+        this.name = fName;
+        this.maxSpeed = fMaxSpeed;
+        this.speed = 0;
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is animal's speed.
+     */
+    public int accelerate(final int power, final int time) {
+        /*
+        * Accelerate, speed = power * time
+        * speed <= maxSpeed
+        */
+        speed += power * time;
+        if (speed <= maxSpeed) {
+            return speed;
+        } else {
+            speed = maxSpeed;
+            return speed;
+        }
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is car's speed.
+     */
+    public int brake(final int power, final int time) {
+        // break, speed = speed - power * time
+        // speed >= 0
+       speed -= power * time;
+        if (speed >= 0) {
+            return speed;
+        } else {
+            speed = 0;
+            return speed;
+        }
+    }
+
+
+}
+
+
+
+Hare.java-- 
+public class Hare extends Animal{
+
+        /**
+    * Color of animal.
+    */
+    private static String color = "";
+    /**
+    * Name of animal.
+    */
+    private static String name = "";
+    /**
+    * limited speed of animal.
+    */
+    private static int maxSpeed = 0;
+    /**
+    * Speed of animal.
+    */
+    private static int speed = 0;
+
+    /**
+     * @param fColor
+     * @param fLicensePlate
+     * @param fName
+     * @param fMaxSpeed
+     */
+    public Hare(final String fColor, final String fName,) {
+        super(fColor);
+        this.name = fName;
+        this.speed = 0;
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is car's speed.
+     */
+    public int accelerate(final int power, final int time) {
+        /*
+        * Accelerate, speed = power * time
+        * speed <= maxSpeed
+        */
+        speed += power * time;
+        if (speed <= maxSpeed) {
+            return speed;
+        } else {
+            speed = maxSpeed;
+            return speed;
+        }
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is car's speed.
+     */
+    public int brake(final int power, final int time) {
+        // break, speed = speed - power * time
+        // speed >= 0
+       speed -= power * time;
+        if (speed >= 0) {
+            return speed;
+        } else {
+            speed = 0;
+            return speed;
+        }
+    }
+}
+
+Tortoise.java --
+public class Tortoise extends Animal{
+    public int accelerate(final int power, final int time) {
+        /*
+        * Accelerate, speed = power * time
+        * speed <= maxSpeed
+        */
+        speed += power * time;
+        if (speed <= maxSpeed) {
+            return speed;
+        } else {
+            speed = maxSpeed;
+            return speed;
+        }
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is car's speed.
+     */
+    public int brake(final int power, final int time) {
+        // break, speed = speed - power * time
+        // speed >= 0
+       speed -= power * time;
+        if (speed >= 0) {
+            return speed;
+        } else {
+            speed = 0;
+            return speed;
+        }
+    }
+}
+
+
+Helloowfs v.java
+/*
+ * The "Hare and tortoise" program, just proves you can print to terminal.
+ *
+ * @author  Yoochan Han
+ * @version 1.0
+ * @since   2025-12-01
+ */
+
+/**
+ * This is the standard "Hare and tortoise" program.
+ */
+public final class HelloWorld {
+
+    /**
+     * Prevent instantiation.
+     * Throw an exception IllegalStateException.
+     * if this is ever called
+     *
+     * @throws IllegalStateException if this is ever called
+     *
+     */
+    private HelloWorld() {
+        throw new IllegalStateException("Cannot be instantiated");
+    }
+
+    /**
+     * A constant representing some number.
+     */
+    private static final int SOME_NUMBER = 42;
+
+    /**
+     * The starting main() function.
+     *
+     * @param args No args will be used
+     */
+    public static void main(final String[] args) {
+        // variables
+
+        // print out "Hello, World!"
+        System.out.println("Hello, World!");
+        System.out.println(SOME_NUMBER);
+        
+        System.out.println("\nDone.");
+    }
+}
