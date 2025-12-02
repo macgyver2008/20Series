@@ -75,20 +75,22 @@ public class Animal{
 
 
 Hare.java-- 
+
+
 public class Hare extends Animal{
 
         /**
     * Color of animal.
     */
-    private static String color = "";
+    private static String color = "White";
     /**
     * Name of animal.
     */
-    private static String name = "";
+    private static String name = "Hare";
     /**
     * limited speed of animal.
     */
-    private static int maxSpeed = 0;
+    private static int maxSpeed = 300;
     /**
     * Speed of animal.
     */
@@ -100,10 +102,8 @@ public class Hare extends Animal{
      * @param fName
      * @param fMaxSpeed
      */
-    public Hare(final String fColor, final String fName,) {
-        super(fColor);
-        this.name = fName;
-        this.speed = 0;
+    public Hare() {
+        super(color, name, maxSpeed);
     }
 
     /**
@@ -143,10 +143,21 @@ public class Hare extends Animal{
             return speed;
         }
     }
+    
+    public int specialSkill() {
+        return speed;
+    }
+
+    public int getSpeed() {
+        System.out.println(name + "'s speed is now " + speed + "km/h");
+        return speed;
+    }
 }
 
 Tortoise.java --
 public class Tortoise extends Animal{
+
+    
     public int accelerate(final int power, final int time) {
         /*
         * Accelerate, speed = power * time
