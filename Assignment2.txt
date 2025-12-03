@@ -76,44 +76,50 @@ public class Animal{
 
 Hare.java-- 
 
-
 public class Hare extends Animal{
 
         /**
     * Color of animal.
     */
-    private static String color = "White";
+    private String color = "White";
     /**
     * Name of animal.
     */
-    private static String name = "Hare";
+    private String name = "Hare";
     /**
     * limited speed of animal.
     */
-    private static int maxSpeed = 300;
+    private int maxSpeed = 40;
     /**
     * Speed of animal.
     */
-    private static int speed = 0;
+    private int speed = 0;
+    /**
+     * distance to travel
+     */
+    private int distance = 1000;
 
     /**
      * @param fColor
-     * @param fLicensePlate
      * @param fName
      * @param fMaxSpeed
      */
     public Hare() {
-        super(color, name, maxSpeed);
+        super("White", "Hare", 26);
+    }
+
+    public void run(int speed){
+        distance -= speed;
     }
 
     /**
      * @param power
      * @param time
      * @return speed
-     * which is car's speed.
      */
+    @Override
     public int accelerate(final int power, final int time) {
-        /*
+        /**
         * Accelerate, speed = power * time
         * speed <= maxSpeed
         */
@@ -132,6 +138,7 @@ public class Hare extends Animal{
      * @return speed
      * which is car's speed.
      */
+    @Override
     public int brake(final int power, final int time) {
         // break, speed = speed - power * time
         // speed >= 0
@@ -143,31 +150,86 @@ public class Hare extends Animal{
             return speed;
         }
     }
-    
-    public int specialSkill() {
-        return speed;
+    /**
+     * @param chance
+     * @return sleep
+     */
+    public int specialSkill(int chance) {
+        if (chance >= 75) {
+            System.out.println("Special (dis)avility! take a nap zzz");
+            System.out.println(name + " is fell a sleep for 10 turn");
+            return 10;
+        }
+        return 0;
     }
 
     public int getSpeed() {
-        System.out.println(name + "'s speed is now " + speed + "km/h");
+        // System.out.println(name + "'s speed is now " + speed + "km/h");
         return speed;
+    }
+
+    public void introduce() {
+        System.out.println("Name: " + name);
+        System.out.println("Max speed:" + maxSpeed);
+        System.out.println("her message: I'm tired");
     }
 }
 
 Tortoise.java --
 public class Tortoise extends Animal{
 
-    
+        /**
+    * Color of animal.
+    */
+    private String color = "Green";
+    /**
+    * Name of animal.
+    */
+    final private String name = "Tortoise";
+    /**
+    * limited speed of animal.
+    */
+    final private int maxSpeed = 3;
+    /**
+    * Speed of animal.
+    */
+    private int speed = 0;
+    /**
+     * distance to travel
+     */
+    private int distance = 1000;
+    /**
+     * @param fColor
+     * @param fName
+     * @param fMaxSpeed
+     */
+    public Tortoise() {
+        super("Green", "Tortoise", 3);
+    }
+
+    public void run(int speed){
+        distance -= speed;
+    }
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     */
+    @Override
     public int accelerate(final int power, final int time) {
-        /*
+        /**
+         * speed (0 - 100)
+         * time (1 - 5)
         * Accelerate, speed = power * time
         * speed <= maxSpeed
         */
-        speed += power * time;
+        speed += (power/10) * time;
         if (speed <= maxSpeed) {
+            run(speed);
             return speed;
         } else {
             speed = maxSpeed;
+            run(speed);
             return speed;
         }
     }
@@ -178,6 +240,7 @@ public class Tortoise extends Animal{
      * @return speed
      * which is car's speed.
      */
+    @Override
     public int brake(final int power, final int time) {
         // break, speed = speed - power * time
         // speed >= 0
@@ -189,10 +252,34 @@ public class Tortoise extends Animal{
             return speed;
         }
     }
+    /**
+     * @param chance
+     * @return sleep
+     */
+    public int specialSkill(int chance) {
+        if (chance >= 80) {
+            System.out.println("Special (dis)avility! he is tired..");
+            System.out.println(name + " will break for 2 turn");
+            return 2;
+        }
+        return 0;
+    }
+
+    public int getSpeed() {
+        // System.out.println(name + "'s speed is now " + speed + "km/h");
+        return speed;
+    }
+    public void introduce() {
+        System.out.println("Name: " + name);
+        System.out.println("Max speed:" + maxSpeed);
+        System.out.println("his message: I'm fast");
+    }
 }
 
 
 Helloowfs v.java
+import java.util.Random;
+
 /*
  * The "Hare and tortoise" program, just proves you can print to terminal.
  *
@@ -202,9 +289,9 @@ Helloowfs v.java
  */
 
 /**
- * This is the standard "Hare and tortoise" program.
+* This is the standard "Hare and tortoise" program.
  */
-public final class HelloWorld {
+public final class UselessAnimalRacing {
 
     /**
      * Prevent instantiation.
@@ -214,27 +301,43 @@ public final class HelloWorld {
      * @throws IllegalStateException if this is ever called
      *
      */
-    private HelloWorld() {
+    private UselessAnimalRacing() {
         throw new IllegalStateException("Cannot be instantiated");
     }
-
-    /**
-     * A constant representing some number.
-     */
-    private static final int SOME_NUMBER = 42;
-
     /**
      * The starting main() function.
      *
      * @param args No args will be used
      */
     public static void main(final String[] args) {
-        // variables
+        // variables and classes
+        Hare hare = new Hare();
+        Tortoise tortoise = new Tortoise();
+        Random random = new Random();
+        // int randomNumber = random.nextInt(100) + 1;
+        final int track = 1000;
+        int turn = 0;
 
-        // print out "Hello, World!"
-        System.out.println("Hello, World!");
-        System.out.println(SOME_NUMBER);
+        System.out.println("Wellcome to Silver forest Racing!");
+        delay(1);
         
-        System.out.println("\nDone.");
+
+
+
+
+
+
+
+
+    }
+    public static void delay(int time) {
+        try {
+            // Delay for 3 seconds (3000 milliseconds)
+            Thread.sleep(time * 1000); 
+        } catch (InterruptedException e) {
+            // Handle the InterruptedException if the thread is interrupted while sleeping
+            e.printStackTrace();
+        }
     }
 }
+
