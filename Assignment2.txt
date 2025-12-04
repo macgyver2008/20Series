@@ -281,7 +281,7 @@ Helloowfs v.java
 import java.util.Random;
 
 /*
- * The "Hare and tortoise" program, just proves you can print to terminal.
+ * The "Hare and Tortoise" program.
  *
  * @author  Yoochan Han
  * @version 1.0
@@ -289,53 +289,120 @@ import java.util.Random;
  */
 
 /**
-* This is the standard "Hare and tortoise" program.
+ * This is the Hare and Tortoise race simulation.
  */
 public final class UselessAnimalRacing {
 
     /**
      * Prevent instantiation.
-     * Throw an exception IllegalStateException.
-     * if this is ever called
-     *
-     * @throws IllegalStateException if this is ever called
-     *
      */
     private UselessAnimalRacing() {
         throw new IllegalStateException("Cannot be instantiated");
     }
+
     /**
      * The starting main() function.
      *
      * @param args No args will be used
      */
     public static void main(final String[] args) {
-        // variables and classes
+
+        // Create animals
         Hare hare = new Hare();
         Tortoise tortoise = new Tortoise();
         Random random = new Random();
-        // int randomNumber = random.nextInt(100) + 1;
-        final int track = 1000;
-        int turn = 0;
 
-        System.out.println("Wellcome to Silver forest Racing!");
-        delay(1);
-        
+        final int track = 1000;   // finish distance
+        int hareDistance = track;
+        int tortoiseDistance = track;
 
+        int hareSleep = 0;        // hare sleeping turns
+        int turtleSleep = 0;      // tortoise resting turns
 
+        int turn = 1;
 
+        System.out.println("=============================================");
+        System.out.println("      Welcome to Silver Forest Racing!       ");
+        System.out.println("=============================================");
+        delay(2);
 
+        hare.introduce();
+        delay(2);
+        tortoise.introduce();
+        delay(2);
 
+        System.out.println("\nRace Start!\n");
 
+        // GAME LOOP
+        while (hareDistance > 0 && tortoiseDistance > 0) {
 
+            System.out.println("---------- TURN " + turn + " ----------");
 
+            // 1) HARE TURN -------------------------------------------------
+            if (hareSleep > 0) {
+                System.out.println("Hare is sleeping... remaining turns: " + hareSleep);
+                hareSleep--;
+            } else {
+                int power = random.nextInt(30) + 1; // 1~30
+                int time = random.nextInt(3) + 1;   // 1~3
+
+                hare.accelerate(power, time);
+                hareDistance -= hare.getSpeed();
+
+                // special skill chance
+                int chance = random.nextInt(100) + 1;
+                hareSleep = hare.specialSkill(chance);
+
+                System.out.println("🐰 Hare speed: " + hare.getSpeed());
+                System.out.println("🐰 Hare remaining distance: " + Math.max(hareDistance, 0));
+            }
+
+            // 2) TORTOISE TURN ----------------------------------------------
+            if (turtleSleep > 0) {
+                System.out.println("Tortoise is resting... remaining turns: " + turtleSleep);
+                turtleSleep--;
+            } else {
+                int power = random.nextInt(30) + 1; // 1~30
+                int time = random.nextInt(3) + 1;   // 1~3
+
+                tortoise.accelerate(power, time);
+                tortoiseDistance -= tortoise.getSpeed();
+
+                // special skill chance
+                int chance = random.nextInt(100) + 1;
+                turtleSleep = tortoise.specialSkill(chance);
+
+                System.out.println("Tortoise speed: " + tortoise.getSpeed());
+                System.out.println("Tortoise remaining distance: " + Math.max(tortoiseDistance, 0));
+            }
+
+            // WIN CONDITION ---------------------------------------------------
+            if (hareDistance <= 0 && tortoiseDistance <= 0) {
+                System.out.println("\nIt's a TIE!!!");
+                break;
+            } else if (hareDistance <= 0) {
+                System.out.println("\nHare wins the race!");
+                break;
+            } else if (tortoiseDistance <= 0) {
+                System.out.println("\nTortoise wins the race!");
+                break;
+            }
+
+            turn++;
+            delay(1);
+            System.out.println();
+        }
+
+        System.out.println("\n===== RACE FINISHED =====");
     }
-    public static void delay(int time) {
+
+    /**
+     * Delay method (seconds)
+     */
+    public static void delay(final int time) {
         try {
-            // Delay for 3 seconds (3000 milliseconds)
-            Thread.sleep(time * 1000); 
+            Thread.sleep(time * 1000);
         } catch (InterruptedException e) {
-            // Handle the InterruptedException if the thread is interrupted while sleeping
             e.printStackTrace();
         }
     }
