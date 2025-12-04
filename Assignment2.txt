@@ -89,7 +89,7 @@ public class Hare extends Animal{
     /**
     * limited speed of animal.
     */
-    private int maxSpeed = 40;
+    private int maxSpeed = 20;
     /**
     * Speed of animal.
     */
@@ -97,7 +97,7 @@ public class Hare extends Animal{
     /**
      * distance to travel
      */
-    private int distance = 1000;
+    private int distance = 0;
 
     /**
      * @param fColor
@@ -105,7 +105,11 @@ public class Hare extends Animal{
      * @param fMaxSpeed
      */
     public Hare() {
-        super("White", "Hare", 26);
+        super("White", "Hare", 20);
+    }
+
+    public void setdistance(int distanceSetter) {
+        distance = distanceSetter;
     }
 
     public void run(int speed){
@@ -155,7 +159,8 @@ public class Hare extends Animal{
      * @return sleep
      */
     public int specialSkill(int chance) {
-        if (chance >= 75) {
+        if (chance >= 70) {
+            brake(100, 5);
             System.out.println("Special (dis)avility! take a nap zzz");
             System.out.println(name + " is fell a sleep for 10 turn");
             return 10;
@@ -171,7 +176,7 @@ public class Hare extends Animal{
     public void introduce() {
         System.out.println("Name: " + name);
         System.out.println("Max speed:" + maxSpeed);
-        System.out.println("her message: I'm tired");
+        System.out.println("her message: I'm 80 years old... tired");
     }
 }
 
@@ -205,6 +210,10 @@ public class Tortoise extends Animal{
      */
     public Tortoise() {
         super("Green", "Tortoise", 3);
+    }
+
+    public void setdistance(int distanceSetter) {
+        distance = distanceSetter;
     }
 
     public void run(int speed){
@@ -258,8 +267,13 @@ public class Tortoise extends Animal{
      */
     public int specialSkill(int chance) {
         if (chance >= 80) {
+            brake(100, 5);
             System.out.println("Special (dis)avility! he is tired..");
             System.out.println(name + " will break for 2 turn");
+            if (chance >= 90) {
+                System.out.println("OMG!! he rolls");
+                distance -= 100;
+            }
             return 2;
         }
         return 0;
@@ -276,12 +290,111 @@ public class Tortoise extends Animal{
     }
 }
 
+Tung Sahur.java
+public class Tungtungtungtungtungtungtungtungtungsahur extends Animal{
+
+    /**
+    * Color of animal.
+    */
+    private String color = "Wooden Brown";
+    /**
+    * Name of animal.
+    */
+    final private String name = "Tungtungtungtungtungtungtungtungtungsahur";
+    /**
+    * limited speed of animal.
+    */
+    final private int maxSpeed = 99999999;
+    /**
+    * Speed of animal.
+    */
+    private int speed = 0;
+    /**
+     * distance to travel
+     */
+    private int distance = 1000;
+    /**
+     * @param fColor
+     * @param fName
+     * @param fMaxSpeed
+     */
+    public Tungtungtungtungtungtungtungtungtungsahur() {
+        super
+        ("Wooden Brown", "Tungtungtungtungtungtungtungtungtungsahur", 99999999);
+    }
+
+    public void setdistance(int distanceSetter) {
+        distance = distanceSetter;
+    }
+
+    public void run(int speed){
+        distance -= speed;
+    }
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     */
+    @Override
+    public int accelerate(final int power, final int time) {
+        System.out.println("Sahur time is yet...");
+        return 0;
+    }
+
+    /**
+     * @param power
+     * @param time
+     * @return speed
+     * which is car's speed.
+     */
+    @Override
+    public int brake(final int power, final int time) {
+        return 0;
+    }
+    /**
+     * @param chance
+     * @param tortoiseDistance
+     * @param hareDistance
+     * @return sahurTime
+     */
+    public int specialSkill(int chance) {
+        if (chance >= 90) {
+            System.out.println
+            ("TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG SAHUR");
+            return 3;
+        }
+        return 0;
+    }
+
+    public int avtivateSkill(int chance, int tortoiseDistance, int hareDistance) {
+            if (chance <= 50) {
+                distance = tortoiseDistance + 75;
+            } else {
+                distance = hareDistance + 75;
+            }
+            return distance;
+    }
+    public int getSpeed() {
+        // System.out.println(name + "'s speed is now " + speed + "km/h");
+        return speed;
+    }
+    public void introduce() {
+        System.out.println("Name: " + name);
+        System.out.print("Tung, tung, tung, tung, tung, tung, tung, tung,");
+        System.out.print("tung Sahur. Anomali mengerikan yang hanya keluar");
+        System.out.print(" pada sahur.\n Konon katanya kalau ada orang yang");
+        System.out.print(" dipanggil sahur tiga kali dan tidak nyaut ....");
+        System.out.print("Tung, tung, tung, tung, tung, tung, tung! Share ");
+        System.out.println("ke teman kalian yang susah sahur.");
+    }
+}
+
 
 Helloowfs v.java
 import java.util.Random;
 
 /*
- * The "Hare and Tortoise" program.
+ * The "Hare and tortoise" program, just proves you can print to terminal.
  *
  * @author  Yoochan Han
  * @version 1.0
@@ -289,7 +402,7 @@ import java.util.Random;
  */
 
 /**
- * This is the Hare and Tortoise race simulation.
+* This is the standard "Hare and tortoise" program.
  */
 public final class UselessAnimalRacing {
 
@@ -310,17 +423,24 @@ public final class UselessAnimalRacing {
         // Create animals
         Hare hare = new Hare();
         Tortoise tortoise = new Tortoise();
+        Tungtungtungtungtungtungtungtungtungsahur sahur = 
+        new Tungtungtungtungtungtungtungtungtungsahur();
         Random random = new Random();
 
         final int track = 1000;   // finish distance
         int hareDistance = track;
         int tortoiseDistance = track;
+        int sahurDistance = track;
 
         int hareSleep = 0;        // hare sleeping turns
         int turtleSleep = 0;      // tortoise resting turns
+        int sahurTime = 0;        // Sahut timer
 
         int turn = 1;
-
+        
+        tortoise.setdistance(track);
+        hare.setdistance(track);
+        sahur.setdistance(track);
         System.out.println("=============================================");
         System.out.println("      Welcome to Silver Forest Racing!       ");
         System.out.println("=============================================");
@@ -330,17 +450,21 @@ public final class UselessAnimalRacing {
         delay(2);
         tortoise.introduce();
         delay(2);
+        sahur.introduce();
 
         System.out.println("\nRace Start!\n");
 
         // GAME LOOP
-        while (hareDistance > 0 && tortoiseDistance > 0) {
+        while (hareDistance > 0 &&
+        tortoiseDistance > 0 &&
+        sahurDistance > 0) {
 
             System.out.println("---------- TURN " + turn + " ----------");
 
             // 1) HARE TURN -------------------------------------------------
             if (hareSleep > 0) {
-                System.out.println("Hare is sleeping... remaining turns: " + hareSleep);
+                System.out.println("Hare is sleeping... remaining turns: " +
+                hareSleep);
                 hareSleep--;
             } else {
                 int power = random.nextInt(30) + 1; // 1~30
@@ -353,13 +477,15 @@ public final class UselessAnimalRacing {
                 int chance = random.nextInt(100) + 1;
                 hareSleep = hare.specialSkill(chance);
 
-                System.out.println("🐰 Hare speed: " + hare.getSpeed());
-                System.out.println("🐰 Hare remaining distance: " + Math.max(hareDistance, 0));
+                System.out.println("Hare speed: " + hare.getSpeed());
+                System.out.println("Hare remaining distance: " +
+                Math.max(hareDistance, 0));
             }
 
             // 2) TORTOISE TURN ----------------------------------------------
             if (turtleSleep > 0) {
-                System.out.println("Tortoise is resting... remaining turns: " + turtleSleep);
+                System.out.println("Tortoise is resting... remaining turns: " +
+                turtleSleep);
                 turtleSleep--;
             } else {
                 int power = random.nextInt(30) + 1; // 1~30
@@ -372,12 +498,41 @@ public final class UselessAnimalRacing {
                 int chance = random.nextInt(100) + 1;
                 turtleSleep = tortoise.specialSkill(chance);
 
-                System.out.println("Tortoise speed: " + tortoise.getSpeed());
-                System.out.println("Tortoise remaining distance: " + Math.max(tortoiseDistance, 0));
+                System.out.println("Sahur is... stop??");
+                System.out.println("Tortoise remaining distance: " +
+                Math.max(tortoiseDistance, 0));
+            }
+
+            // 3) SAHUR TURN ----------------------------------------------
+            if (sahurTime > 0) {
+                System.out.println("Tung Tung.. Sahur: Sahur!");
+                sahurTime--;
+            } else if (sahurTime == 1) {
+                int chance = random.nextInt(100) + 1;
+                sahurTime = sahur.specialSkill(chance);
+                sahurDistance = 
+                sahur.avtivateSkill(chance, tortoiseDistance, hareDistance);
+                System.out.println
+                ("TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG SAHUR");
+            }else {
+                int power = random.nextInt(30) + 1; // 1~30
+                int time = random.nextInt(3) + 1;   // 1~3
+
+                sahur.accelerate(power, time);
+                sahurDistance -= sahur.getSpeed();
+
+                // special skill chance
+                int chance = random.nextInt(100) + 1;
+                sahurTime = sahur.specialSkill(chance);
+
+                System.out.println("Sahur's speed:.. Stop? ");
+                System.out.println("T.Sahur remaining distance: " +
+                Math.max(sahurDistance, 0));
             }
 
             // WIN CONDITION ---------------------------------------------------
-            if (hareDistance <= 0 && tortoiseDistance <= 0) {
+            if (hareDistance <= 0 && tortoiseDistance <= 0
+            && sahurDistance <= 0) {
                 System.out.println("\nIt's a TIE!!!");
                 break;
             } else if (hareDistance <= 0) {
@@ -386,10 +541,14 @@ public final class UselessAnimalRacing {
             } else if (tortoiseDistance <= 0) {
                 System.out.println("\nTortoise wins the race!");
                 break;
+            } else if (sahurDistance <= 0) {
+                System.out.println
+                ("\nTungtungtungtungtungtungtungtungtungsahur wins the race!");
+                break;
             }
 
             turn++;
-            delay(1);
+            // delay(1);
             System.out.println();
         }
 
@@ -407,4 +566,3 @@ public final class UselessAnimalRacing {
         }
     }
 }
-
